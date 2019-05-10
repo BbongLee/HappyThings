@@ -13,9 +13,9 @@ class HappyThings(models.Model):
     thing = models.CharField(max_length=200) 
     #설명
     desc = models.TextField() 
-    #행복지수
+    #행복지수 1~5
     happinessIndex = models.IntegerField(default=0)
-    #노력지수
+    #노력지수 1~5
     effortIndex = models.IntegerField(default=0)
 
 
