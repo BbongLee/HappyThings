@@ -7,6 +7,12 @@
 	<h1>
 	행복을 찾아서 떠나는 여정 !
 	</h1>
-
+	{% for thing in things %}
+	    <div>
+	        <p>published: {{ thing.published_date }}</p>
+	        <h1><a href="">{{ thing.thing }}</a></h1>
+	        <p>{{ thing.desc|linebreaksbr }}</p>
+	    </div>
+	{% endfor %}
 </body>
 </html>
