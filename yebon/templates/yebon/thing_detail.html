@@ -7,6 +7,9 @@
                 {{ thing.published_date }}
             </div>
         {% endif %}
+        {% if user.is_authenticated %}
+        	<a class="btn btn-default" href="{% url 'thing_edit' pk=thing.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
         <h1>{{ thing.thing }}</h1>
         <p>{{ thing.desc|linebreaksbr }}</p>
     </div>
