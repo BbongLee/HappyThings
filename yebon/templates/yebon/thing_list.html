@@ -11,15 +11,36 @@
 </head>
 <body>
 	{% block content %}
+		<script type="text/javascript"> 
+		var happyPercent=0;
+		function cnt(hap, eff) {
+			happyPercent += hap*eff;
+			console.log(happyPercent);
+		}
+		window.onload = function count(){
+			document.getElementById("hapPct").innerHTML = happyPercent;
+		}
+	</script>
 		{% for thing in things %}
 		    <div class="thing">
+		    	<h3 class={{thing.reporter}}>{{thing.reporter}}에게서 오는 행복</h3>
 		        <h1><a href="{% url 'thing_detail' pk=thing.pk %}">{{ thing.thing }}</a></h1>
-		        <p>{{ thing.desc}}</p>
+				<script type="text/javascript"> 
+					var hap = parseInt("{{ thing.happinessIndex}}");
+					var eff = parseInt("{{ thing.effortIndex}}");
+					cnt(hap,eff);
+				</script>
+		        <p>행복지수 : {{ thing.happinessIndex}} / 노력지수 : {{ thing.effortIndex}}</p>
+			    <p>{{ thing.desc}}</p>
+
 		        <div class="date">
 		        	<p>published: {{ thing.published_date |linebreaksbr}}</p>
 		        </div>
 		    </div>
 		{% endfor %}
+	<h2>예본이의 행복지수는?<STRONG id="hapPct"></STRONG></h2>
 	{% endblock %}
+	
+	
 </body>
 </html>

@@ -10,7 +10,7 @@ h1 a {
 
 .page-header {
     background-color: #ff9400;
-    margin-top: 0;
+    margin: 0;
     padding: 20px 20px 20px 40px;
 }
 
@@ -21,7 +21,9 @@ h1 a {
 }
 
 .content {
-    margin-left: 40px;
+    margin: 40px;
+    padding: 20px;
+    border: 2px solid orange;
 }
 
 h1, h2, h3, h4 {
@@ -49,6 +51,7 @@ h1, h2, h3, h4 {
 
 .thing {
     margin-bottom: 70px;
+    border: 2px solid yellow;
 }
 
 .thing h1 a, .thing h1 a:visited {
