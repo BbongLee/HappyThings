@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect
 from django.utils import timezone
 from .models import HappyThings
 from .forms import HappyThingForm
+
 
 # request를 넘겨받아 render메서드 호출, yebon/thing_list.html 템플릿을 보여주는 함수
 def thing_list(request):
@@ -20,7 +22,21 @@ def thing_new(request):
             thing.reporter = request.user
             thing.published_date = timezone.now()
             thing.save()
-            return redirect('post_detail', pk=thing.pk)
+            return redirect('thing_detail', pk=thing.pk)
     else:
         form = HappyThingForm()
+    return render(request, 'yebon/thing_edit.html', {'form': form})
+
+def thing_edit(request, pk):
+    thing = get_object_or_404(HappyThings, pk=pk)
+    if request.method == "POST":
+        form = HappyThingForm(request.POST, instance=thing)
+        if form.is_valid():
+            thing = form.save(commit=False)
+            thing.reporter = request.user
+            thing.published_date = timezone.now()
+            thing.save()
+            return redirect('thing_detail', pk=thing.pk)
+    else:
+        form = HappyThingForm(instance=thing)
     return render(request, 'yebon/thing_edit.html', {'form': form})
