@@ -6,4 +6,4 @@ class HappyThingForm(forms.ModelForm):
 
     class Meta:
         model = HappyThings
-        fields = ('thing', 'desc',)
+        fields = ('reporter','thing','happinessIndex','effortIndex','desc',)

@@ -1,5 +1,4 @@
 body {
-    padding-left: 15px;
     font-family: "Nanum Gothic";
 }
 
@@ -9,31 +8,52 @@ h1 a {
 }
 
 .page-header {
-    background-color: #ff9400;
     margin: 0;
-    padding: 20px 20px 20px 40px;
+    padding: 40px;
+    text-align: center;
+    background: #40E0D0;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #FF0080, #FF8C00, #40E0D0);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #FF0080, #FF8C00, #40E0D0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #ffffff;
     font-size: 36pt;
     text-decoration: none;
+
 }
 
 .content {
-    margin: 40px;
+	text-align: center;
+    margin: auto;
+    margin-top: 20px;
     padding: 20px;
+    width: 80%;
     border: 2px solid orange;
 }
 
 h1, h2, h3, h4 {
-    font-family: "Nanum Myeongjo", cursive;
+    font-family: "Nanum Myeongjo";
 }
 
+.yebon {
+	border: 5px solid #BEE9C0;
+}
+.sandoll {
+	border: 5px solid #9FDBDF;
+}
+.nature {
+	border: 5px solid #57C794;
+}
+.world {
+	border: 5px solid #ABABE3;
+}
+/*
 .date {
     color: #828282;
 }
-
+*/
 .save {
     float: right;
 }
@@ -42,18 +62,34 @@ h1, h2, h3, h4 {
     width: 100%;
 }
 
-.top-menu, .top-menu:hover, .top-menu:visited {
+/*.top-menu, .top-menu:hover, .top-menu:visited {
     color: #ffffff;
     float: right;
     font-size: 26pt;
-    margin-right: 20px;
+}*/
+
+#happyThings {
 }
 
 .thing {
-    margin-bottom: 70px;
-    border: 2px solid yellow;
+    margin: 10px;
+    padding: 20px;
+	text-align: left;
 }
 
-.thing h1 a, .thing h1 a:visited {
-    color: #000000;
+.thing a, .thing a:visited a:hover a:link{
+    color: #000000; text-decoration: none;
+}
+
+.thing:hover{
+	border: 5px solid yellow;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+.grid-item {
+  padding: 20px;
 }

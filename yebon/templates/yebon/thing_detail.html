@@ -2,15 +2,27 @@
 
 {% block content %}
     <div class="thing">
-        {% if thing.published_date %}
+       <!--  {% if thing.published_date %}
             <div class="date">
                 {{ thing.published_date }}
             </div>
-        {% endif %}
+        {% endif %} -->
         {% if user.is_authenticated %}
         	<a class="btn btn-default" href="{% url 'thing_edit' pk=thing.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
+
+        {% if thing.reporter.username == "yebon" %}
+		    			<p>나에게서 오는 행복</p>
+		    		{% elif thing.reporter.username == "sandoll"%}
+		    			<p>산돌에게서 찾게 될 행복</p>
+		    		{% elif thing.reporter.username == "nature"%}
+		    			<p>자연에게서 오는 행복</p>
+		    		{% elif thing.reporter.username == "world"%}
+		    			<p>세상에게서 오는 행복</p>
+			        {% endif %}
+			        
         <h1>{{ thing.thing }}</h1>
+        <p class="">행복지수 : {{ thing.happinessIndex}} / 노력지수 : {{ thing.effortIndex}}</p>
         <p>{{ thing.desc|linebreaksbr }}</p>
     </div>
 {% endblock %}

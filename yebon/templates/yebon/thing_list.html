@@ -21,24 +21,37 @@
 			document.getElementById("hapPct").innerHTML = happyPercent;
 		}
 	</script>
+	<div id="happyThings" class="grid-container">
 		{% for thing in things %}
-		    <div class="thing">
-		    	<h3 class={{thing.reporter}}>{{thing.reporter}}에게서 오는 행복</h3>
-		        <h1><a href="{% url 'thing_detail' pk=thing.pk %}">{{ thing.thing }}</a></h1>
-				<script type="text/javascript"> 
-					var hap = parseInt("{{ thing.happinessIndex}}");
-					var eff = parseInt("{{ thing.effortIndex}}");
-					cnt(hap,eff);
-				</script>
-		        <p>행복지수 : {{ thing.happinessIndex}} / 노력지수 : {{ thing.effortIndex}}</p>
-			    <p>{{ thing.desc}}</p>
+		    <div class="thing {{thing.reporter}} grid-item">
+		    	<a href="{% url 'thing_detail' pk=thing.pk %}">
+		    		{% if thing.reporter.username == "yebon" %}
+		    			<p>나에게서 오는 행복</p>
+		    		{% elif thing.reporter.username == "sandoll"%}
+		    			<p>산돌에게서 찾게 될 행복</p>
+		    		{% elif thing.reporter.username == "nature"%}
+		    			<p>자연에게서 오는 행복</p>
+		    		{% elif thing.reporter.username == "world"%}
+		    			<p>세상에게서 오는 행복</p>
+			        {% endif %}
+			        <h1>{{ thing.thing }}</h1>
+					<script type="text/javascript"> 
+						var hap = parseInt("{{ thing.happinessIndex}}");
+						var eff = parseInt("{{ thing.effortIndex}}");
+						cnt(hap,eff);
+					</script>
+			        <p>행복지수 : {{ thing.happinessIndex}} / 노력지수 : {{ thing.effortIndex}}</p>
+				    <!-- <p>{{ thing.desc|truncatewords:20}}_더 보기</p> -->
+				    <p>{{ thing.desc}}</p>
 
-		        <div class="date">
-		        	<p>published: {{ thing.published_date |linebreaksbr}}</p>
-		        </div>
+	<!-- 		        <div class="date">
+			        	<p>published: {{ thing.published_date |linebreaksbr}}</p>
+			        </div> -->
+			    </a>
 		    </div>
 		{% endfor %}
-	<h2>예본이의 행복지수는?<STRONG id="hapPct"></STRONG></h2>
+	</div>
+	<h2>예본이의 행복지수는? <STRONG id="hapPct"></STRONG></h2>
 	{% endblock %}
 	
 	
