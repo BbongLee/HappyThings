@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/yebon.css' %}">
-        <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Nanum+Myeongjo&amp;subset=korean" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&amp;subset=korean" rel="stylesheet">
 </head>
 <body>
 	{% block content %}
@@ -21,6 +21,7 @@
 			document.getElementById("hapPct").innerHTML = happyPercent;
 		}
 	</script>
+
 	<div id="happyThings" class="grid-container">
 		{% for thing in things %}
 		    <div class="thing {{thing.reporter}} grid-item">
@@ -34,16 +35,16 @@
 		    		{% elif thing.reporter.username == "world"%}
 		    			<p>세상에게서 오는 행복</p>
 			        {% endif %}
-			        <h1>{{ thing.thing }}</h1>
+			        <h3 style="text-align: center;">{{ thing.thing }}</h3>
 					<script type="text/javascript"> 
 						var hap = parseInt("{{ thing.happinessIndex}}");
 						var eff = parseInt("{{ thing.effortIndex}}");
 						cnt(hap,eff);
 					</script>
-			        <p>행복지수 : {{ thing.happinessIndex}} / 노력지수 : {{ thing.effortIndex}}</p>
+			        <p style="text-align: right;">행복지수 : {{ thing.happinessIndex}} / 노력지수 : {{ thing.effortIndex}}</p>
 				    <!-- <p>{{ thing.desc|truncatewords:20}}_더 보기</p> -->
-				    <p>{{ thing.desc}}</p>
-
+				    <!-- <p>{{ thing.desc}}</p>
+ -->
 	<!-- 		        <div class="date">
 			        	<p>published: {{ thing.published_date |linebreaksbr}}</p>
 			        </div> -->

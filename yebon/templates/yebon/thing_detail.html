@@ -1,7 +1,7 @@
 {% extends 'yebon/base.html' %}
 
 {% block content %}
-    <div class="thing">
+    <div class="thing_detail">
        <!--  {% if thing.published_date %}
             <div class="date">
                 {{ thing.published_date }}
@@ -20,9 +20,9 @@
 		    		{% elif thing.reporter.username == "world"%}
 		    			<p>세상에게서 오는 행복</p>
 			        {% endif %}
-			        
+
         <h1>{{ thing.thing }}</h1>
         <p class="">행복지수 : {{ thing.happinessIndex}} / 노력지수 : {{ thing.effortIndex}}</p>
-        <p>{{ thing.desc|linebreaksbr }}</p>
+        <div class="desc">{{ thing.desc|linebreaksbr }}</div>
     </div>
 {% endblock %}
