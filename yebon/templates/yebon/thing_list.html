@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hello Yebon!</title>
+	<title>행복을 찾아서</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/yebon.css' %}">
@@ -12,30 +12,30 @@
 <body>
 	{% block content %}
 		<script type="text/javascript"> 
-		var happyPercent=0;
-		function cnt(hap, eff) {
-			happyPercent += hap*eff;
-			console.log(happyPercent);
-		}
-		window.onload = function count(){
-			document.getElementById("hapPct").innerHTML = happyPercent;
-		}
-	</script>
+			var happyPercent=0;
+			function cnt(hap, eff) {
+				happyPercent += hap*eff;
+				console.log(happyPercent);
+			}
+			function count(){
+				document.getElementById("hapPct").innerHTML = happyPercent+"%";
+			}
+		</script>
 
 	<div id="happyThings" class="grid-container">
 		{% for thing in things %}
 		    <div class="thing {{thing.reporter}} grid-item">
 		    	<a href="{% url 'thing_detail' pk=thing.pk %}">
 		    		{% if thing.reporter.username == "yebon" %}
-		    			<p>나에게서 오는 행복</p>
+		    			<p>😊나에게서 오는 행복</p>
 		    		{% elif thing.reporter.username == "sandoll"%}
-		    			<p>산돌에게서 찾게 될 행복</p>
+		    			<p>🌚산돌에게서 찾게 될 행복</p>
 		    		{% elif thing.reporter.username == "nature"%}
-		    			<p>자연에게서 오는 행복</p>
+		    			<p>🍀자연에게서 오는 행복</p>
 		    		{% elif thing.reporter.username == "world"%}
-		    			<p>세상에게서 오는 행복</p>
+		    			<p>🌏세상에게서 오는 행복</p>
 			        {% endif %}
-			        <h3 style="text-align: center;">{{ thing.thing }}</h3>
+			        <h1 style="text-align: center;">{{ thing.thing }}</h1>
 					<script type="text/javascript"> 
 						var hap = parseInt("{{ thing.happinessIndex}}");
 						var eff = parseInt("{{ thing.effortIndex}}");
@@ -52,9 +52,16 @@
 		    </div>
 		{% endfor %}
 	</div>
-	<h2>예본이의 행복지수는? <STRONG id="hapPct"></STRONG></h2>
+	<div id="footer">
+		<h2>현재 예본의 "행복 Percentage"는 ? <div id="hapPct" onclick="count()">보기</div></h2>
+		<h4 style="text-align: left;">"행복 Percentage"는 행복지수(1~5) X 노력지수(1~5) 가 누적된 결과입니다. <BR>
+			처음엔 노력이 행복이 될 줄 몰랐겠지만, 시간이 지나고 그 노력들이 누적되어 큰 행복을 만들게 됩니다. <BR>
+			산돌에서도 "아름다운 세상"을 만들어 나가겠다는 책임감을 갖고 꾸준히 노력하며 행복을 찾아내겠습니다.<BR>
+			아직 채워지지 않은 퍼센트는 시간이 흐르며 더 새로운 행복으로 채워질 예정이랍니다!☺️</h4>
+
+		<H4>저의 행복을 찾는 여정🚶‍♀️ 🚶‍♂️ 🏃‍♀️ 🏃‍♂️을 함께 지켜봐주셔서 감사합니다. 행복한 하루하루 보내세요! </H4>
+	</div>
+
 	{% endblock %}
-	
-	
 </body>
 </html>

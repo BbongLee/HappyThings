@@ -1,5 +1,6 @@
 body {
     font-family: "Nanum Gothic";
+    line-height:3em;
 }
 
 .page-header {
@@ -23,23 +24,24 @@ body {
 	text-align: center;
     margin: auto;
     margin-top: 20px;
+    margin-bottom: 20px;
     padding: 20px;
     width: 80%;
-    border: 5px solid orange;
+    border: 10px solid #FF8C94;
 }
 
 
 .yebon {
-	border: 5px solid #BEE9C0;
+	border: 10px solid #FFFF6C;
 }
 .sandoll {
-	border: 5px solid #9FDBDF;
+	border: 10px solid #0487D9;
 }
 .nature {
-	border: 5px solid #57C794;
+	border: 10px solid #BAE357;
 }
 .world {
-	border: 5px solid #ABABE3;
+	border: 10px solid #FFD4B5;
 }
 /*
 .date {
@@ -69,13 +71,17 @@ body {
 	text-align: left;
 }
 
+.thing_detail{
+	margin: auto;
+	width: 60%;
+}
 
 .thing a, .thing a:visited a:hover a:link{
     color: #000000; text-decoration: none;
 }
 
 .thing:hover{
-	border: 5px solid yellow;
+	border: 10px solid #FFDF24;
 }
 
 .grid-container {
@@ -88,8 +94,32 @@ body {
 }
 
 .desc{
-	border: 5px solid yellow;
-	padding: 10px;
+	font-size: 1.25em;
+	border: 10px solid #FFFF6C;
+	padding: 50px;
 	margin: auto;
 	margin-top: 20px;
+}
+
+#hapPct{
+	display: inline-block;
+	background-color: #56B4D3;
+	margin: 10px;
+	padding :10px;
+	color: white;
+}
+
+#hapPct:hover{
+	background-color: #348F50;
+}
+
+#footer{
+ margin: auto;
+ padding:20px;
+ width: 70%;
+
+}
+
+#footer h4{
+	line-height:2em;
 }
